@@ -3,3 +3,5 @@
 [Y Combinator board on hackable watches](https://news.ycombinator.com/item?id=15823597)
 
 [Open Street Maps - .osm data format](https://wiki.openstreetmap.org/wiki/OSM_XML)
+
+[Open Street Maps - .gpx data format](https://wiki.openstreetmap.org/wiki/GPX)
