@@ -5,3 +5,7 @@
 [Open Street Maps - .osm data format](https://wiki.openstreetmap.org/wiki/OSM_XML)
 
 [Open Street Maps - .gpx data format](https://wiki.openstreetmap.org/wiki/GPX)
+
+[GPSBabel homepage](https://www.gpsbabel.org/)
+
+[GPSBabel git repo](https://github.com/gpsbabel/gpsbabel)
