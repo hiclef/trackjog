@@ -13,4 +13,6 @@ FIRST ITERATION - goals
 	- use XML parsing library
 	- ignore heart rate / further data
 
-- explore options for fetching data from server and processing it
+- looking ahead:
+	- explore options for fetching data from server and processing it
+	- research possibilities for visualization using OpenStreetMaps
