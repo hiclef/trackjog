@@ -1,4 +1,4 @@
-# extract_coords
+# extract_data
 # A module for turning Garmin .gpx 'trk's into global coordinate paths
 # and then formatting and uploading the data to a MySQL server.
 from re import sub
@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
 import mysql.connector as MSC
 
 
-with open('activity1.gpx', 'r') as gpx_route:
+with open('_activity_.gpx', 'r') as gpx_route:
     tree = ET.parse(gpx_route)
     root = tree.getroot()
 
@@ -42,7 +42,7 @@ def upload_data(pwd: str) -> None:
                         )
 
             cursor.execute(add_point, data_point)
-            if j > 0 and j%100 == 0: print(f"Added points {j-100+1}-{j}.")
+            if j > 0 and j%300 == 0: print(f"Added points {j-300+1}-{j}.")
 
 
             if j == 0 or j == len(trkpts)-1:
