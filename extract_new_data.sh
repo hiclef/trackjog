@@ -4,23 +4,31 @@
 # convert it to GPX format, and upload it to the
 # MySQL server.
 
-#echo "Running script:"
 
+# Check that watch is plugged into USB port
 if [ ! -e ACTIVITY_DATA ]; then
 	echo "Garmin Forerunner not connected!"
 	echo "Please connect to USB port and try again."
-	exit 1
+	exit 1	# terminate with error code
 fi
 
-# FIX - insert credential check here
-
+# Prompt user for mysql-client password
 echo "Enter password for server:"
 read -s pwd
 
+# Verify password. If correct, retrieve file timestamp of
+# most recent upload to database.
+#timestamp='2014-01-01 00:00:00'
 timestamp=$(python3 get_timestamp.py $pwd)
-echo "Latest timestamp: $timestamp"
-echo
+if [ $? -eq 1 ]; then
+    	echo "Incorrect password: failed to connect to database."
+	exit 1	# terminate with error code
+else
+	echo "Latest timestamp: $timestamp"
+	echo
+fi
 
+# Find new files, and extract and upload data from each
 # FIX - timestamp for symbolic link ACTIVITY_DATA is '2013-12-31 19:00:38'; find out why.
 find ACTIVITY_DATA/ -newermt "$timestamp" | while read line; do
 
@@ -38,9 +46,6 @@ find ACTIVITY_DATA/ -newermt "$timestamp" | while read line; do
 	rm -f _activity_.gpx
 done
 
+# Terminate script succesfully
 echo "Data extraction complete."
 exit 0
-
-
-
-
