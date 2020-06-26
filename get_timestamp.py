@@ -14,7 +14,7 @@ else:
 
 # Vefify password by attempting to connect to MySQL server
 try:
-    cnx = MSC.connect(user='matthew', password=pwd, host='10.0.0.129', database='trackjog')
+    cnx = MSC.connect(user='matthew', password=pwd, host='10.0.0.129', database='trackJog')
 except MSC.errors.ProgrammingError:
     exit(1)
 

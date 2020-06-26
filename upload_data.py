@@ -23,7 +23,7 @@ else:
 
 
 # Connect to MySQL server
-cnx = MSC.connect(user='matthew', password=pwd, host='10.0.0.129', database='trackjog')
+cnx = MSC.connect(user='matthew', password=pwd, host='10.0.0.129', database='trackJog')
 cursor = cnx.cursor()
 print("Connected to trackjog database.")
 
