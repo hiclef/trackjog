@@ -23,9 +23,9 @@ else:
 
 
 # Connect to MySQL server
-cnx = MSC.connect(user='matthew', password=pwd, host='10.0.0.129', database='trackJog')
+cnx = MSC.connect(user='matthew', password=pwd, host='10.0.0.129', database='trackjog')
 cursor = cnx.cursor()
-print("Connected to trackJog database.")
+print("Connected to trackjog database.")
 
 # Check that data is clean, and parse into Python lists
 assert root[2].tag == '{http://www.topografix.com/GPX/1/0}trk'

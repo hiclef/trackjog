@@ -1,5 +1,5 @@
 # get_timestamp
-# Script to retrieve latest data timestamp from MySQL trackJog server.
+# Script to retrieve latest data timestamp from MySQL trackjog server.
 import mysql.connector as MSC
 import sys
 
@@ -14,9 +14,10 @@ else:
 
 # Vefify password by attempting to connect to MySQL server
 try:
-    cnx = MSC.connect(user='matthew', password=pwd, host='10.0.0.129', database='trackJog')
+    cnx = MSC.connect(user='matthew', password=pwd, host='10.0.0.129', database='trackjog')
 except MSC.errors.ProgrammingError:
     exit(1)
+
 
 # Execute command to get file timestamp of most recent upload
 cursor = cnx.cursor()

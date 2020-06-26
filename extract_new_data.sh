@@ -12,12 +12,14 @@ if [ ! -e ACTIVITY_DATA ]; then
 	exit 1	# terminate with error code
 fi
 
+
 # Prompt user for mysql-client password
 echo "Enter password for server:"
 read -s pwd
 
 # Verify password. If correct, retrieve file timestamp of
 # most recent upload to database.
+# FIX - timestamp for symbolic link ACTIVITY_DATA is '2013-12-31 19:00:38'; find out why.
 #timestamp='2014-01-01 00:00:00'
 timestamp=$(python3 get_timestamp.py $pwd)
 if [ $? -eq 1 ]; then
@@ -28,8 +30,14 @@ else
 	echo
 fi
 
-# Find new files, and extract and upload data from each
-# FIX - timestamp for symbolic link ACTIVITY_DATA is '2013-12-31 19:00:38'; find out why.
+
+# Check for new files
+if [ ! $(find ACTIVITY_DATA/ -newermt "$timestamp") ]; then
+	echo "No new files: database up to date."
+	exit 0
+fi
+
+# Get new files, and extract and upload data from each
 find ACTIVITY_DATA/ -newermt "$timestamp" | while read line; do
 
 	echo -n "Converting ${line#ACTIVITY_DATA/} to GPX..."
@@ -45,6 +53,7 @@ find ACTIVITY_DATA/ -newermt "$timestamp" | while read line; do
 
 	rm -f _activity_.gpx
 done
+
 
 # Terminate script succesfully
 echo "Data extraction complete."
