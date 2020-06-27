@@ -2,7 +2,7 @@
 # extract_new_data
 # Script to look for new data in Garmin Forerunner,
 # convert it to GPX format, and upload it to the
-# MySQL server.
+# MySQL server's database.
 
 
 # Check that watch is plugged into USB port
@@ -32,7 +32,7 @@ fi
 
 
 # Check for new files
-if [ ! $(find ACTIVITY_DATA/ -newermt "$timestamp") ]; then
+if [ ! $(find ACTIVITY_DATA/ -newermt "$timestamp" | tail -n1) ]; then
 	echo "No new files: database up to date."
 	exit 0
 fi

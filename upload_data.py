@@ -23,7 +23,7 @@ else:
 
 
 # Connect to MySQL server
-cnx = MSC.connect(user='matthew', password=pwd, host='10.0.0.129', database='trackJog')
+cnx = MSC.connect(user='matthew', password=pwd, host='10.0.0.129', database='trackjog_test')
 cursor = cnx.cursor()
 print("Connected to trackjog database.")
 
@@ -50,7 +50,7 @@ for i,trkseg in enumerate(trksegs):
         LON = float( trkpt.attrib['lon'] )
 
         data_point = (LAT, LON, DT)
-        add_point = ("INSERT INTO points_test "
+        add_point = ("INSERT INTO points "
                      "(latitude, longitude, time) "
                      "VALUES (%s, %s, %s)"
                     )
@@ -71,7 +71,7 @@ for i,trkseg in enumerate(trksegs):
                 STOP_ID = ID    # save ID of last point
                 print(f"Added points {300*(j//300) + 1}-{j}.")
 
-            update_point = ("UPDATE points_test "
+            update_point = ("UPDATE points "
                             "SET flag = %s "
                             "WHERE id = %s"
                             )
@@ -80,7 +80,7 @@ for i,trkseg in enumerate(trksegs):
             cursor.execute(update_point, flag_point)
 
     data_route = (TIMESTAMP, START_ID, STOP_ID)
-    add_route = ("INSERT INTO routes_test "
+    add_route = ("INSERT INTO routes "
                  "(timestamp, start_point, stop_point) "
                  "VALUES (%s, %s, %s)"
                 )

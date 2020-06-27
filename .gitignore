@@ -1,0 +1,8 @@
+# Python virtual environment files
+venv
+
+# Python cache
+__pycache__
+
+# Symbolic link to Garmin Forerunner activity files
+ACTIVITY_DATA

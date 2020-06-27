@@ -1,5 +1,7 @@
-# get_timestamp
-# Script to retrieve latest data timestamp from MySQL trackjog server.
+# get_summary
+# Retrieves a list of all of the routes in the
+# MySQL database, and prints an overview to the console.
+import datetime
 import mysql.connector as MSC
 import sys
 
@@ -21,13 +23,9 @@ except MSC.errors.ProgrammingError:
     exit(1)
 
 
-# Execute command to get file timestamp of most recent upload
-cursor.execute("SELECT MAX(timestamp) FROM routes")
-data = next(cursor)[0]
+# Execute command to get all routes in database
+cursor.execute("SELECT * FROM routes")
+data = cursor
 
-# Return result to console
-if data:
-    print(str(data))
-else:
-    # Default timestamp - earlier than all activity data
-    print("2014-01-01 00:00:00")
+for record in data:
+    print(str(record[0]), f"{record[2]-record[1]} seconds")
