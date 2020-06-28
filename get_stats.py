@@ -29,12 +29,12 @@ except MSC.errors.ProgrammingError:
 # Timestamp of first uploaded route
 DT = "2020-06-22 11:08:54"
 
+
 # Get start and stop ids for route
 datetime_route = (DT,)
 get_route = ("SELECT start_point, stop_point FROM routes "
              "WHERE timestamp = %s"
             )
-
 cursor.execute(get_route, datetime_route)
 endpoints = next(cursor)
 print("Point range:", endpoints)
@@ -44,10 +44,20 @@ range_points = (endpoints[0], endpoints[1])
 get_points = ("SELECT latitude, longitude FROM points "
               "WHERE id BETWEEN %s AND %s"
              )
-
 cursor.execute(get_points, range_points)
 data = list(cursor)
-print(len(data), "points")
+print(len(data), "total points")
+
+# Get start and stop times
+points_times = (endpoints[0], endpoints[1])
+get_times = ("SELECT time FROM points "
+                "WHERE id IN (%s, %s)"
+               )
+cursor.execute(get_times, points_times)
+start_time = next(cursor)[0]
+stop_time = next(cursor)[0]
+duration = stop_time - start_time
+print("Duration:", duration)
 
 # Calculate distance, speed data
 segments = [ GD.vincenty(data[i],data[i+1]).km for i in range(len(data)-1) ]
