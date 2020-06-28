@@ -27,6 +27,7 @@ except MSC.errors.ProgrammingError:
 cursor.execute("SELECT * FROM routes")
 data = cursor
 
+# Display summary of routes
 for record in data:
     duration = datetime.timedelta( seconds=(record[2]-record[1]) )
     print(f"{str(record[0])}. Duration: {duration}")
