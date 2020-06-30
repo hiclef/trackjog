@@ -68,6 +68,12 @@ print("Average speed:", round(avg_speed, 3), "km/hr")
 #print("Max speed:", round(3600 * max(segments), 3), "km/hr")
 print("Max speed:", round(1000 * max(segments), 3), "m/sec")
 
+# Display map of route
+latitudes = [ d[0] for d in data ]
+longitudes = [ d[1] for d in data ]
+PLT.plot(longitudes, latitudes)
+PLT.show()
+
 # Plot distance vs. time
 distances = list(itertools.accumulate(segments))
 PLT.plot(distances)
