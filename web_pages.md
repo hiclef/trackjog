@@ -9,3 +9,9 @@
 [GPSBabel homepage](https://www.gpsbabel.org/)
 
 [GPSBabel git repo](https://github.com/gpsbabel/gpsbabel)
+
+[Cartagen](https://github.com/jywarren/cartagen/wiki)
+
+[Draw GPS Track on OpenStreetMap](https://blog.aaronlenoir.com/2019/09/25/draw-gps-track-on-openstreetmap/)
+
+[Chart.js](https://www.chartjs.org/)
