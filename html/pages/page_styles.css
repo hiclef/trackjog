@@ -8,3 +8,20 @@ header {
   	font-weight: 100;
 	color: white;
 }
+
+footer {
+  text-align: center;
+}
+
+table {
+	border-spacing: 15px;
+	border: 1px solid black;
+}
+
+thead {
+	background: lightblue;
+}
+
+#mapid {
+	height: 400px;
+}

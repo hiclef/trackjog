@@ -1,20 +1,32 @@
 [
-    {
-        "Book ID": "1",
-        "Book Name": "Computer Architecture",
-        "Category": "Computers",
-        "Price": "125.60"
-    },
-    {
-        "Book ID": "2",
-        "Book Name": "Asp.Net 4 Blue Book",
-        "Category": "Programming",
-        "Price": "56.00"
-    },
-    {
-        "Book ID": "3",
-        "Book Name": "Popular Science",
-        "Category": "Science",
-        "Price": "210.40"
-    }
+	{
+		"date":"2020-06-22",
+		"time":"11:08:54",
+		"duration": "0:48:50"
+	},
+	{
+		"date":"2020-06-22",
+		"time":"12:00:34",
+		"duration":"0:50:33"
+	},
+	{
+		"date":"2020-06-23",
+		"time":"12:27:46",
+		"duration":"1:00:00"
+	},
+	{
+		"date":"2020-06-23",
+		"time":"13:03:46",
+		"duration":"0:35:42"
+	},
+	{
+		"date":"2020-06-24",
+		"time":"18:33:20",
+		"duration":"2:01:48"
+	},
+	{
+		"date":"2020-06-25",
+		"time":"12:58:38",
+		"duration":"1:28:47"
+	}
 ]
