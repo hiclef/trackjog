@@ -22,6 +22,11 @@ thead {
 	background: lightblue;
 }
 
+ul {
+	list-style-type: none;
+	text-transform: capitalize;
+}
+
 #mapid {
 	height: 600px;
 }

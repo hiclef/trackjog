@@ -1,5 +1,4 @@
 const http = new XMLHttpRequest();
-//console.log("Ready to make HTTP request.")
 
 //http.open("GET", "http://localhost/pages/table_data.json")
 http.open("GET", "table_data.json")
@@ -7,37 +6,33 @@ http.send();
 
 http.onreadystatechange = (e) => {
 
-		var txt = http.responseText;
-		var jsn = JSON.parse(txt);
-		//console.log(txt);
+	let data = JSON.parse(http.responseText);
 
-		// Create table
-		var tableSection = document.getElementById("js-table-section");
-		tableSection.innerHTML = "";
-		var table = document.createElement("TABLE");
-		table.setAttribute("id", "js-table");
-		tableSection.appendChild(table);
-	
-		// Add table rows
-		for (i = 0; i < jsn.length; ++i) {
-			row = table.insertRow(i);
-			cell1 = row.insertCell(0);
-			cell2 = row.insertCell(1);
-			cell3 = row.insertCell(2);
-			cell1.innerHTML = jsn[i]["date"];
-			cell2.innerHTML = jsn[i]["time"];
-			cell3.innerHTML = jsn[i]["duration"];
+	let tableSection = document.getElementById("js-table-section");
+	tableSection.innerHTML = "";
+	let table = document.createElement("table");
+	tableSection.appendChild(table);
+
+	generateTable(table, data);
+	generateTHead(table, data);
+}
+
+function generateTable(table, data) {
+	for (element of data) {
+		let row = table.insertRow();
+		for (key in element) {
+			let cell = row.insertCell();
+			cell.innerHTML = element[key]
 		}
+	}
+}
 
-		// Add table header
-		var theader = table.createTHead();
-		var row = theader.insertRow(0);
-		var cell1 = row.insertCell(0);
-		var cell2 = row.insertCell(1);
-		var cell3 = row.insertCell(2);
-		cell1.outerHTML = "<th>DATE</th>";
-		cell2.outerHTML = "<th>TIME</th>";
-		cell3.outerHTML = "<th>DURATION</th>";
-
-
+function generateTHead(table, data) {
+	let thead = table.createTHead();
+	let row = thead.insertRow();
+	for (key in data[0]) {
+		let th = document.createElement("th");
+		th.innerHTML = key.toUpperCase()
+		row.appendChild(th);
+	}
 }
