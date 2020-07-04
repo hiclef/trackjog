@@ -1,7 +1,7 @@
 const http = new XMLHttpRequest();
 
-//http.open("GET", "http://localhost/pages/summary_data.php")
-http.open("GET", "summary_data.php");
+//http.open("GET", "http://localhost/pages/get_summary.php")
+http.open("GET", "get_summary.php");
 http.send();
 
 http.onreadystatechange = (e) => {
@@ -15,7 +15,7 @@ http.onreadystatechange = (e) => {
 	for (key in data) {
 		let item = document.createElement("li"); 
 		item.innerHTML = key + ": " + data[key];
-		console.log(item.innerHTML);
+		//console.log(item.innerHTML);
 		uList.appendChild(item);
 	}
 }

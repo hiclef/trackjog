@@ -1,7 +1,7 @@
 const http = new XMLHttpRequest();
 
-//http.open("GET", "http://localhost/pages/table_data.json")
-http.open("GET", "table_data.json")
+//http.open("GET", "http://localhost/pages/get_routeslist.php")
+http.open("GET", "get_routeslist.php")
 http.send();
 
 http.onreadystatechange = (e) => {

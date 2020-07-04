@@ -15,3 +15,5 @@
 [Draw GPS Track on OpenStreetMap](https://blog.aaronlenoir.com/2019/09/25/draw-gps-track-on-openstreetmap/)
 
 [Chart.js](https://www.chartjs.org/)
+
+[PHP distance calculations](https://stackoverflow.com/questions/10053358/measuring-the-distance-between-two-coordinates-in-php)
