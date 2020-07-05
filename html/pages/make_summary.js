@@ -1,13 +1,16 @@
-const http = new XMLHttpRequest();
+// Timestamp for choice of route
+var stampSummary = sessionStorage.getItem("route_timestamp");
 
-//http.open("GET", "http://localhost/pages/get_summary.php")
-http.open("GET", "get_summary.php");
-http.send();
+// Route from database
+var httpSummary = new XMLHttpRequest();
+//httpSummary.open("GET", "http://localhost/pages/get_summary.php")
+httpSummary.open("GET", "get_summary.php" + "?timestamp=" + stampSummary)
+httpSummary.send();
 
-http.onreadystatechange = (e) => {
+httpSummary.onreadystatechange = (e) => {
 
-	let data = JSON.parse(http.responseText);
-	let summarySection = document.getElementById("route-summary-section");
+	let data = JSON.parse(httpSummary.responseText);
+	let summarySection = document.getElementById("route-summary");
 	let uList = document.createElement("ul");
 	summarySection.innerHTML = "";
 	summarySection.appendChild(uList);

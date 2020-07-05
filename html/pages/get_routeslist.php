@@ -1,19 +1,14 @@
 <?php
-$servername = "10.0.0.129";
-$username = "matthew";
-$password = "G40inp237";
-$dbname = "trackjog_test";
+include 'db_credentials.php';
+include 'db_functions.php';
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+// Make & check connection to database
+$conn = make_connection($credentials);
 
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
+// Get all routes
 $sql = "SELECT * FROM routes";
 $result = $conn->query($sql);
+$conn->close();
 
 function duration_string($sec) {
 	$h = intdiv($sec, 3600);
@@ -40,8 +35,6 @@ while ($row = $result->fetch_assoc()) {
 	);
 	array_push($data, $item);
 }
-
-$conn->close();
 
 echo json_encode($data/*, JSON_PRETTY_PRINT*/);
 ?>

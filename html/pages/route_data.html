@@ -10,15 +10,30 @@
 		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
    crossorigin=""></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 		<script src="http://livejs.com/live.js"></script>
 
 	</head>
 	<body>
-		<header>TrackJog / ROUTE MAP</header>
+		<header>TrackJog / ROUTE DATA</header>
 		<main>
-			<p>Test page for displaying map of a route.</p>
-			<h2>Map of Route:</h2>
-			<div id="mapid"></div>
+			<h2>Route summary</h2>
+			<section id="route-summary"></section>
+			<hr>
+			<h2>Route map</h2>
+			<section id="route-map">
+				<div id="mapid"></div>
+			</section>
+			<hr>
+			<h2>Distance plot</h2>
+			<section id="distance-plot">
+				<canvas id="dist-plotid" height="100"></canvas>
+			</section>
+			<h2>Speed plot</h2>
+			<section id="speed-plot">
+				<canvas id="speed-plotid" height="100"></canvas>
+			</section>
 		</main>
 		<hr>
 		<footer>
@@ -27,6 +42,9 @@
 				matthew.rumizen@gmail.com
 			</a>
 		</footer>
+		<script src="make_summary.js"></script>
 		<script src="make_map.js"></script>
+		<script src="make_distplot.js"></script>
+		<script src="make_speedplot.js"></script>
 	</body>
 </html>

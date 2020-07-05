@@ -1,22 +1,18 @@
 <?php
-$servername = "10.0.0.129";
-$username = "matthew";
-$password = "G40inp237";
-$dbname = "trackjog_test";
+include 'db_credentials.php';
+include 'db_functions.php';
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+// Make & check connection to database
+$conn = make_connection($credentials);
 
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-$stamp = "2020-06-23 12:27:46";
+// Convert timestamp argument
+$stamp = $_GET["timestamp"];
+$stamp = substr($stamp, 0, -1);
+$stamp[10] = ' ';
 
 // Get start,stop point ids
 $sql_range = "SELECT start_point, stop_point FROM routes "
-	. "WHERE timestamp = '{$stamp}'";
+	. "WHERE timestamp = '$stamp'";
 $result_range = $conn->query($sql_range);
 $range = $result_range->fetch_assoc();
 $start = $range["start_point"];
@@ -34,7 +30,6 @@ while ($row = $result_points->fetch_assoc()) {
 	$latlon = array(floatval($row["latitude"]), floatval($row["longitude"]));
 	array_push($data, $latlon);
 }
-
 
 echo json_encode($data);
 ?>

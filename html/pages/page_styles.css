@@ -10,21 +10,34 @@ header {
 }
 
 footer {
-  text-align: center;
+	text-align: center;
+}
+
+ul {
+	font-size: 1.2rem;
+	list-style-type: none;
 }
 
 table {
-	border-spacing: 15px;
+	width: 400px;
+	font-size: 1.2rem;
+	text-align: center;
 	border: 1px solid black;
+	border-collapse: collapse;
 }
 
 thead {
 	background: lightblue;
 }
 
-ul {
-	list-style-type: none;
-	text-transform: capitalize;
+th, td {
+	height: 40px;
+	border-bottom: 1px solid black;
+}
+
+.route-choice:hover {
+	cursor: pointer;
+	background-color: lightgrey;
 }
 
 #mapid {

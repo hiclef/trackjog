@@ -13,17 +13,19 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: token
 }).addTo(map);
 
+// Timestamp for choice of route
+var stampRoute = sessionStorage.getItem("route_timestamp");
+
 // Route from database
-const http = new XMLHttpRequest();
-//http.open("GET", "http://localhost/pages/get_map.php")
-http.open("GET", "get_map.php")
-http.send();
+var httpRoute = new XMLHttpRequest();
+//httpRoute.open("GET", "http://localhost/pages/get_map.php")
+httpRoute.open("GET", "get_map.php" + "?timestamp=" + stampRoute)
+httpRoute.send();
 
-http.onreadystatechange = (e) => {
-
+httpRoute.onreadystatechange = (e) => {
 	// Route coordinates
-	var latlons = JSON.parse(http.responseText);
-
+	var latlons = JSON.parse(httpRoute.responseText);
+	
 	// Add route and zoom to fit
 	var polyline = L.polyline(latlons, {color: 'red'}).addTo(map);
 	map.fitBounds(polyline.getBounds());

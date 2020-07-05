@@ -1,12 +1,12 @@
-const http = new XMLHttpRequest();
+var httpRoutelist = new XMLHttpRequest();
 
-//http.open("GET", "http://localhost/pages/get_routeslist.php")
-http.open("GET", "get_routeslist.php")
-http.send();
+//httpRoutelist.open("GET", "http://localhost/pages/get_routeslist.php")
+httpRoutelist.open("GET", "get_routeslist.php")
+httpRoutelist.send();
 
-http.onreadystatechange = (e) => {
+httpRoutelist.onreadystatechange = (e) => {
 
-	let data = JSON.parse(http.responseText);
+	let data = JSON.parse(httpRoutelist.responseText);
 
 	let tableSection = document.getElementById("js-table-section");
 	tableSection.innerHTML = "";
@@ -24,6 +24,9 @@ function generateTable(table, data) {
 			let cell = row.insertCell();
 			cell.innerHTML = element[key]
 		}
+		let datetime = element["date"] + "T" + element["time"] + "Z";
+		row.setAttribute("onclick", "open_map('" + datetime + "')")
+		row.setAttribute("class", "route-choice")
 	}
 }
 
@@ -35,4 +38,10 @@ function generateTHead(table, data) {
 		th.innerHTML = key.toUpperCase()
 		row.appendChild(th);
 	}
+}
+
+function open_map(timestamp) {
+	sessionStorage.setItem("route_timestamp", timestamp);
+	console.log(timestamp);
+	window.location.href = "route_data.html"
 }
