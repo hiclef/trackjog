@@ -3,6 +3,7 @@
 	<head>
 		<title>TrackJog: My Routes</title>
     		<meta charset="UTF-8"/>
+		<link rel="shortcut icon" type="image/png" href="http://localhost/images/trackjog_favicon.png">
 		<link rel="stylesheet" href="http://localhost/frontend/css/styles.css">
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
 			 integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -13,7 +14,7 @@
 		</script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-		<script src="http://livejs.com/live.js"></script>
+		<!--script src="http://livejs.com/live.js"></script-->
 
 	</head>
 
@@ -33,15 +34,16 @@
 						<section id="route-summary"></section>
 						<section id="display-options">
 							<table><tr>
-								<td>Route map</td><td>Distance plot</td><td>Speed plot</td>
+								<td id="route-map" class="unselected-display" onclick="selectDisplay('route-map')">Route map</td>
+								<td id="dist-plot" class="unselected-display" onclick="selectDisplay('dist-plot')">Distance plot</td>
+								<td id="speed-plot" class="unselected-display" onclick="selectDisplay('speed-plot')">Speed plot</td>
 							</tr></table>
 						</section>
 					</div>
 		
-					<section id="route-map">
-						<div id="mapid"></div>
-					</section>
+					<section id="display-section"></section>
 		
+					<!--
 					<section id="distance-plot">
 						<canvas id="dist-plotid"></canvas>
 					</section>
@@ -49,6 +51,7 @@
 					<section id="speed-plot">
 						<canvas id="speed-plotid"></canvas>
 					</section>
+					-->
 				</section>
 			</div>
 		</main>
@@ -61,12 +64,12 @@
 			</a>
 		</footer>
 
-		<script src="http://localhost/frontend/js/make_routeslist.js"></script>
-		<section id="route-scripts">
-			<script src="http://localhost/frontend/js/make_summary.js"></script>
-			<script src="http://localhost/frontend/js/make_map.js"></script>
-			<script src="http://localhost/frontend/js/make_distplot.js"></script>
-			<script src="http://localhost/frontend/js/make_speedplot.js"></script>
-		</section>
+		<script src="http://localhost/frontend/js/make_summary.js"></script>
+		<script src="http://localhost/frontend/js/make_map.js"></script>
+		<script src="http://localhost/frontend/js/make_distplot.js"></script>
+		<script src="http://localhost/frontend/js/make_speedplot.js"></script>
+		<script src="http://localhost/frontend/js/selections.js"></script>
+		<script src="http://localhost/frontend/js/index.js"></script>
+		<script src="http://localhost/frontend/js/module.js"></script>
 	</body>
 </html>
