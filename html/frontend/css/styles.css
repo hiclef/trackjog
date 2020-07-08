@@ -43,7 +43,6 @@ h2 {
 }
 #display-options table {
 	width: 100%;
-	padding: 1rem;
 	border-collapse: collapse;
 	font-size: 1.4rem;
 	font-family: sans-serif;
@@ -71,6 +70,13 @@ ul {
 	list-style-type: none;
 }
 
+/*
+#routes-list {
+	border: solid;
+	overflow-y: auto;
+}
+*/
+
 #routes-list table {
 	width: 100%;
 	font-size: 1.2rem;
@@ -78,6 +84,10 @@ ul {
 	text-align: center;
 	border: 1px solid lightgrey;
 	border-collapse: collapse;
+}
+
+#routes-list tr {
+	height: 40px;
 }
 
 #routes-list thead {

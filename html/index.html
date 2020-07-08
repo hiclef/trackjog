@@ -5,6 +5,7 @@
     		<meta charset="UTF-8"/>
 		<link rel="shortcut icon" type="image/png" href="http://localhost/images/trackjog_favicon.png">
 		<link rel="stylesheet" href="http://localhost/frontend/css/styles.css">
+
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
 			 integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
 			 crossorigin=""/>
@@ -15,7 +16,6 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 		<!--script src="http://livejs.com/live.js"></script-->
-
 	</head>
 
 	<body>
@@ -25,7 +25,9 @@
 			<div class="flex-container-large">
 				<section id="all-routes">
 					<h2>All routes</h2>
-					<section id="routes-list"></section>
+					<section id="routes-list">
+						<table id="routes-table"></table>
+					</section>
 				</section>
 
 				<section id="current-route">
@@ -34,24 +36,14 @@
 						<section id="route-summary"></section>
 						<section id="display-options">
 							<table><tr>
-								<td id="route-map" class="unselected-display" onclick="selectDisplay('route-map')">Route map</td>
-								<td id="dist-plot" class="unselected-display" onclick="selectDisplay('dist-plot')">Distance plot</td>
-								<td id="speed-plot" class="unselected-display" onclick="selectDisplay('speed-plot')">Speed plot</td>
+								<td id="route-map" class="unselected-display">Route map</td>
+								<td id="dist-plot" class="unselected-display">Distance plot</td>
+								<td id="speed-plot" class="unselected-display">Speed plot</td>
 							</tr></table>
 						</section>
 					</div>
 		
 					<section id="display-section"></section>
-		
-					<!--
-					<section id="distance-plot">
-						<canvas id="dist-plotid"></canvas>
-					</section>
-		
-					<section id="speed-plot">
-						<canvas id="speed-plotid"></canvas>
-					</section>
-					-->
 				</section>
 			</div>
 		</main>
@@ -64,12 +56,6 @@
 			</a>
 		</footer>
 
-		<script src="http://localhost/frontend/js/make_summary.js"></script>
-		<script src="http://localhost/frontend/js/make_map.js"></script>
-		<script src="http://localhost/frontend/js/make_distplot.js"></script>
-		<script src="http://localhost/frontend/js/make_speedplot.js"></script>
-		<script src="http://localhost/frontend/js/selections.js"></script>
-		<script src="http://localhost/frontend/js/index.js"></script>
-		<script src="http://localhost/frontend/js/module.js"></script>
+		<script type="module" src="http://localhost/frontend/js/index.js"></script>
 	</body>
 </html>
