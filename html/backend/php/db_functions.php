@@ -46,6 +46,4 @@ function duration_string($sec) {
 
 	return "PT{$h}H{$m}M{$s}S";
 }
-
-
 ?>

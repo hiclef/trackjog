@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TrackJog: My Routes</title>
+    		<meta charset="UTF-8"/>
+		<link rel="shortcut icon" type="image/png" href="http://localhost/images/trackjog_favicon.png">
+		<link rel="stylesheet" href="http://localhost/frontend/css/styles.css">
+
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+			 integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+			 crossorigin=""/>
+		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+	  		integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+			crossorigin="">
+		</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+		<script src="http://livejs.com/live.js"></script>
+	</head>
+
+	<body>
+		<header>TrackJog / OVERALL DATA</header>
+
+		<main>
+			<section id="cuml-distance">
+				<h2>Cumulative distance</h2>
+				<div class="flex-row">
+					<section id="period-options">
+						<table><tr>
+							<td id="this-week" class="unselected-period">This week</td>
+							<td id="this-month" class="unselected-period">This month</td>
+							<td id="three-months" class="unselected-period">3 Months</td>
+						</tr></table>
+					</section>
+					<section id="total-distance"><p>TOTAL DISTANCE | #</p></section>
+				</div>
+				<canvas id="cuml-distance-graph"></canvas>
+			</section>
+			<section id="personal-bests">
+				<h2>Personal bests</h2>
+				<div class="flex-row">
+					<section id="distance-options">
+						<table><tr>
+							<td id="one-km" class="unselected-distance">1 km</td>
+							<td id="five-km" class="unselected-distance">5 km</td>
+							<td id="ten-km" class="unselected-distance">10 km</td>
+						</tr></table>
+					</section>
+					<section id="overall-best">OVERALL BEST | #</section>
+				</div>
+				<canvas id="personal-best-graph"></canvas>
+			</section>
+		</main>
+
+		<hr>
+		<footer>
+			2020. emails to:
+			<a href="mailto:matthew.rumizen@gmail.com">
+				matthew.rumizen@gmail.com
+			</a>
+		</footer>
+
+		<script type="module" src="http://localhost/frontend/js/index.js"></script>
+	</body>
+</html>
