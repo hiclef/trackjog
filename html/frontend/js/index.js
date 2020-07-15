@@ -9,7 +9,8 @@ display.setAttribute("class", "selected-display");
 
 // Get data for routes table
 var httpRoutelist = new XMLHttpRequest();
-httpRoutelist.open("GET", "http://localhost/backend/php/get_routeslist.php")
+//httpRoutelist.open("GET", "http://localhost/backend/php/get_routeslist.php")
+httpRoutelist.open("GET", "../../backend/php/get_routeslist.php")
 httpRoutelist.responseType = "json";
 httpRoutelist.send();
 

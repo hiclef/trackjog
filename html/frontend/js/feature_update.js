@@ -5,16 +5,16 @@ export function getEndpointPath(feature) {
 	var endpoint;
 	switch(feature) {
 		case "route-summary":
-			endpoint = "http://localhost/backend/php/get_summary.php";
+			endpoint = "../../backend/php/get_summary.php";
 			break;
 		case "route-map":
-			endpoint = "http://localhost/backend/php/get_map.php";
+			endpoint = "../../backend/php/get_map.php";
 			break;
 		case "dist-plot":
-			endpoint = "http://localhost/backend/php/get_distplot.php";
+			endpoint = "../../backend/php/get_distplot.php";
 			break;
 		case "speed-plot":
-			endpoint = "http://localhost/backend/php/get_speedplot.php";
+			endpoint = "../../backend/php/get_speedplot.php";
 			break;
 	}
 	return endpoint;
