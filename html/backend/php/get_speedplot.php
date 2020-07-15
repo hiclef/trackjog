@@ -36,8 +36,11 @@ while ($row = $result_points->fetch_assoc()) {
 	$lon1 = $row["longitude"];
 
 	$speed = vincentyGreatCircleDistance($lat0, $lon0, $lat1, $lon1);
-	$point = array("x" => $row["time"], "y" => $speed);
-	array_push($data, $point);
+	// Filter out data errors
+	if ($speed < 10.0) {
+		$point = array("x" => $row["time"], "y" => $speed);
+		array_push($data, $point);
+	}
 
 	$lat0 = $lat1;
 	$lon0 = $lon1;

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>TrackJog: Home</title>
+		<title>TrackJog: My Routes</title>
     		<meta charset="UTF-8"/>
 		<link rel="shortcut icon" type="image/png" href="http://localhost/images/trackjog_favicon.png">
 		<link rel="stylesheet" href="http://localhost/frontend/css/styles.css">
@@ -15,11 +15,11 @@
 		</script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-		<script src="http://livejs.com/live.js"></script>
+		<!--script src="http://livejs.com/live.js"></script-->
 	</head>
 
 	<body>
-		<header>TrackJog / HOME</header>
+		<header>TrackJog / ROUTE DATA</header>
 		<div id="navigation">
 			<div id="navigation-bar">
 				<a href="http://localhost/index.html">Home</a>
@@ -29,7 +29,32 @@
 			</div>
 		</div>
 
-		<main></main>
+		<main>
+			<div class="flex-container-large">
+				<section id="all-routes">
+					<h2>All routes</h2>
+					<section id="routes-list">
+						<table id="routes-table"></table>
+					</section>
+				</section>
+
+				<section id="current-route">
+					<h2>Current route</h2>
+					<div class="flex-container-small">
+						<section id="route-summary"></section>
+						<section id="display-options">
+							<table><tr>
+								<td id="route-map" class="unselected-display">Route map</td>
+								<td id="dist-plot" class="unselected-display">Distance plot</td>
+								<td id="speed-plot" class="unselected-display">Speed plot</td>
+							</tr></table>
+						</section>
+					</div>
+		
+					<section id="display-section"></section>
+				</section>
+			</div>
+		</main>
 
 		<hr>
 		<footer>
@@ -39,6 +64,6 @@
 			</a>
 		</footer>
 
-		<!-- script type="module" src="http://localhost/frontend/js/index.js"></script -->
+		<script type="module" src="http://localhost/frontend/js/index.js"></script>
 	</body>
 </html>

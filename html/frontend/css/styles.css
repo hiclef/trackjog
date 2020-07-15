@@ -1,5 +1,5 @@
 header {
-  	height: 80px;
+  	height: 60px;
 	background: darkblue;
   	padding: 5px;
 
@@ -8,6 +8,26 @@ header {
   	font-weight: bold;
 	text-indent: 10px;
 	color: white;
+}
+
+#navigation {
+	background: darkblue;
+}
+
+#navigation-bar {
+	width: 50%;
+	display: flex;
+	justify-content: space-around;
+	padding: 5px;
+	background: darkblue;
+}
+
+#navigation-bar a:link, #navigation-bar a:visited {
+	font-family: sans-serif;
+  	font-size: 1.5rem;
+	color: white;
+	color: white;
+	text-decoration: none;
 }
 
 footer {
