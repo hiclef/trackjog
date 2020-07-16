@@ -1,5 +1,5 @@
 <?php
-$servername = "10.0.0.129";
+$servername = "localhost";
 $username = "matthew";
 $password = "G40inp237";
 $dbname = "trackjog_test";

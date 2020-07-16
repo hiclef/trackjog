@@ -5,16 +5,16 @@ export function getEndpointPath(feature) {
 	var endpoint;
 	switch(feature) {
 		case "route-summary":
-			endpoint = "../../backend/php/get_summary.php";
+			endpoint = "http://www.trackjog.com/backend/php/get_summary.php";
 			break;
 		case "route-map":
-			endpoint = "../../backend/php/get_map.php";
+			endpoint = "http://www.trackjog.com/backend/php/get_map.php";
 			break;
 		case "dist-plot":
-			endpoint = "../../backend/php/get_distplot.php";
+			endpoint = "http://www.trackjog.com/backend/php/get_distplot.php";
 			break;
 		case "speed-plot":
-			endpoint = "../../backend/php/get_speedplot.php";
+			endpoint = "http://www.trackjog.com/backend/php/get_speedplot.php";
 			break;
 	}
 	return endpoint;
