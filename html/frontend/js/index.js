@@ -1,6 +1,9 @@
+import { backendAddr } from './host_settings.js';
 import { generateTable, generateTHead } from './routeslist.js';
 import { selectRoute, selectDisplay } from './select.js';
 import { getEndpointPath, makeFeature, updateFeature } from './feature_update.js';
+
+console.log(location.hostname);
 
 // Initializations
 const routeTimestamp = "2020-06-22T11:08:54Z";
@@ -9,7 +12,7 @@ display.setAttribute("class", "selected-display");
 
 // Get data for routes table
 var httpRoutelist = new XMLHttpRequest();
-httpRoutelist.open("GET", "http://www.trackjog.com/backend/php/get_routeslist.php")
+httpRoutelist.open("GET", backendAddr + "backend/php/get_routeslist.php")
 httpRoutelist.responseType = "json";
 httpRoutelist.send();
 

@@ -1,3 +1,4 @@
+import { backendAddr } from './host_settings.js';
 import { makeSummary, makeMap, makeDistPlot, makeSpeedPlot } from './feature_makes.js';
 
 export function getEndpointPath(feature) {
@@ -5,16 +6,16 @@ export function getEndpointPath(feature) {
 	var endpoint;
 	switch(feature) {
 		case "route-summary":
-			endpoint = "http://www.trackjog.com/backend/php/get_summary.php";
+			endpoint = backendAddr + "backend/php/get_summary.php";
 			break;
 		case "route-map":
-			endpoint = "http://www.trackjog.com/backend/php/get_map.php";
+			endpoint = backendAddr + "backend/php/get_map.php";
 			break;
 		case "dist-plot":
-			endpoint = "http://www.trackjog.com/backend/php/get_distplot.php";
+			endpoint = backendAddr + "backend/php/get_distplot.php";
 			break;
 		case "speed-plot":
-			endpoint = "http://www.trackjog.com/backend/php/get_speedplot.php";
+			endpoint = backendAddr + "backend/php/get_speedplot.php";
 			break;
 	}
 	return endpoint;
