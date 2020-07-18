@@ -6,7 +6,8 @@ include 'db_functions.php';
 $conn = make_connection($credentials);
 
 // Get all routes
-$sql = "SELECT * FROM routes";
+$sql = "SELECT * FROM routes "
+	. "ORDER BY timestamp ASC";
 $result = $conn->query($sql);
 $conn->close();
 

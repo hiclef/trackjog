@@ -34,6 +34,10 @@ footer {
 	text-align: center;
 }
 
+p {
+	font-size: 1.2rem;
+}
+
 h2 {
 	font-family: sans-serif;
 }

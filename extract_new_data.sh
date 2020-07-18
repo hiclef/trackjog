@@ -40,6 +40,7 @@ fi
 # Get new files, and extract and upload data from each
 find ACTIVITY_DATA/ -newermt "$timestamp" | while read line; do
 
+
 	echo -n "Converting ${line#ACTIVITY_DATA/} to GPX..."
 	gpsbabel -i garmin_fit -f $line -o gpx -F _activity_.gpx
 	echo "Done."
@@ -52,6 +53,10 @@ find ACTIVITY_DATA/ -newermt "$timestamp" | while read line; do
 	echo
 
 	rm -f _activity_.gpx
+
+	# Add total distance to record
+	stamp="${datetime/ /T}Z"
+	php-cgi -q ./html/backend/php/add_total_dist.php timestamp=$stamp
 done
 
 
