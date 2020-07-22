@@ -31,5 +31,5 @@ while ($row = $result_points->fetch_assoc()) {
 	array_push($data, $latlon);
 }
 
-echo json_encode($data);
+echo json_encode($data /*,JSON_PRETTY_PRINT*/);
 ?>

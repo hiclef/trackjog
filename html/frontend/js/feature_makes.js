@@ -15,9 +15,9 @@ export function makeSummary(data) {
 export function makeMap(data) {
 
 	const displaySection = document.getElementById("display-section");
-	displaySection.innerHTML = "<div id='mapid'></div>";
+	displaySection.innerHTML = "<div id='map-id'></div>";
 
-	var map = L.map('mapid').setView([42.507837, -71.119082], 14);
+	var map = L.map('map-id').setView([42.507837, -71.119082], 14);
 
 	// Mapbox token
 	const token = "pk.eyJ1IjoiaGktY2xlZiIsImEiOiJja2M3MzZ2bHowc3pjMnh0NmtzZzhpNGtxIn0.R2Kv_cYDCm-JVBR5sOVcKg"
@@ -97,6 +97,35 @@ export function makeSpeedPlot(points) {
 	// Create plot
 	var plot = new Chart(ctxSpeed, {
 		type: 'line',
+		data: { datasets: [dataSet] },
+		options: scaleTime,
+	});
+}
+
+export function makeRecentDist(bars) {
+
+	var ctxRecent = document.getElementById("recent-dist-id");
+
+	// Create dataset
+	let dataSet = {
+		label: "Distance (km)",
+		data: bars,
+		backgroundColor: "red",
+	};
+
+	// Set options
+	let scaleTime = {
+		scales: {
+			xAxes: [{
+				type: "time",
+				time: { unit: "day" },
+			}]
+		}
+	};
+
+	// Create plot
+	var plot = new Chart(ctxRecent, {
+		type: 'bar',
 		data: { datasets: [dataSet] },
 		options: scaleTime,
 	});

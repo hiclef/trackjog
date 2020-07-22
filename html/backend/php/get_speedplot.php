@@ -46,5 +46,5 @@ while ($row = $result_points->fetch_assoc()) {
 	$lon0 = $lon1;
 }
 
-echo json_encode($data);
+echo json_encode($data /*,JSON_PRETTY_PRINT*/);
 ?>

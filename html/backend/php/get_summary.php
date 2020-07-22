@@ -36,6 +36,7 @@ $lon0 = $row["longitude"];
 $totalDist = 0;
 
 while ($row = $result_points->fetch_assoc()) {
+
 	$lat1 = $row["latitude"];
 	$lon1 = $row["longitude"];
 
@@ -53,5 +54,5 @@ $data = array(
 	"Average speed (km/h)" => round(3.600 * $totalDist/($stop-$start), 3),
 );
 
-echo json_encode($data, JSON_PRETTY_PRINT);
+echo json_encode($data /*,JSON_PRETTY_PRINT*/);
 ?>
